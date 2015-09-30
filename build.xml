@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project HistoryFetch with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+	
+	<target name="init" depends="clean">
+			<mkdir dir="dist" />
+		</target>
+	
+	<target name="clean">
+			<delete dir="dist" />
+		</target>
+	
+    <target name="create_run_jar" depends="init">
+        <jar destfile="dist/HistoryFetch1.0.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.verizon.hackathon.trigger.ScheduleTrigger"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ c3p0-0.9.1.1.jar log4j-1.2.16.jar ojdbc6.jar quartz-1.8.6.jar quartz-all-1.8.6.jar quartz-commonj-1.8.6.jar quartz-examples-1.8.6.jar slf4j-api-1.6.1.jar slf4j-log4j12-1.6.1.jar sqlite-jdbc-3.8.11.1.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="bin"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="c3p0-0.9.1.1.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="log4j-1.2.16.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="ojdbc6.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="quartz-1.8.6.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="quartz-all-1.8.6.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="quartz-commonj-1.8.6.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="quartz-examples-1.8.6.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="slf4j-api-1.6.1.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="slf4j-log4j12-1.6.1.jar"/>
+            <zipfileset dir="C:\Users\Administrator\gitrmzflks\RMZFlks\WebContent\WEB-INF\lib" includes="sqlite-jdbc-3.8.11.1.jar"/>
+        </jar>
+    </target>
+</project>
